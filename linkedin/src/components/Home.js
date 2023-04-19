@@ -1,40 +1,42 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import Header from './Header';
-import LeftSide from './LeftSide';
-import MiddleSide from './MiddleSide';
-import RightSide from './RightSide';
-
+import Header from "./Header";
+import LeftSide from "./LeftSide";
+import MiddleSide from "./MiddleSide";
+import RightSide from "./RightSide";
 
 const Home = () => {
   return (
-   <Container>
-    <Header/>  
-    <Section>
+    <Container>
+      <Header />
+      <Section>
         <h5>
-            <a>Hiring in a hurry? - </a>
+          <a>Hiring in a hurry? - </a>
         </h5>
-        <p>Find talanted pros in record time with Upwork and keep business moving</p>
-    </Section>
-    <Layout>
-        <LeftSide/>
-        <MiddleSide/>
-        <RightSide/>
-    </Layout>
-   </Container>
-  )
-}
+        <p>
+          Find talanted pros in record time with Upwork and keep business moving
+        </p>
+      </Section>
+      <Layout>
+        <LeftSide />
+        <MiddleSide />
+        <RightSide />
+      </Layout>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   padding-top: 52px;
-  max-width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
 `;
 
-const Content = styled.div`
-  max-width: 1128px;
-  margin-left: auto;
-  margin-right: auto;
-`;
+// const Content = styled.div`
+//   max-width: 1128px;
+//   margin-left: auto;
+//   margin-right: auto;
+// `;
 
 const Section = styled.section`
   display: flex;
@@ -67,10 +69,9 @@ const Section = styled.section`
 const Layout = styled.div`
   display: grid;
   grid-template-areas: "leftside main rightside";
-  grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
+  grid-template-columns: minmax(0, 7fr) minmax(0, 15fr) minmax(300px, 7fr);
   column-gap: 25px;
   row-gap: 25px;
-  /* grid-template-row: auto; */
   margin: 25px 0;
   @media (max-width: 768px) {
     display: flex;
@@ -78,4 +79,4 @@ const Layout = styled.div`
     padding: 0 5px;
   }
 `;
-export default Home
+export default Home;

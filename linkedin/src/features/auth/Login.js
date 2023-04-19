@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { signInApi } from "./SignInApi";
 
 const Login = (props) => {
   return (
@@ -14,14 +16,14 @@ const Login = (props) => {
       </Nav>
       <Section>
         <Hero>
-           <h1> Welcome to your professional community</h1>
-           <img src="/images/login-hero.svg" alt="" />
+          <h1> Welcome to your professional community</h1>
+          <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
-            <Google>
-                <img src="/images/google.svg" alt="" />
-                Sign in with Google
-            </Google>
+          <Google onClick={() => props.signIn()}>
+            <img src="/images/google.svg" alt="" />
+            Sign in with Google
+          </Google>
         </Form>
       </Section>
     </Container>
@@ -101,7 +103,7 @@ const Section = styled.section`
 `;
 
 const Hero = styled.div`
-    width: 100%;
+  width: 100%;
   h1 {
     padding-bottom: 0;
     width: 55%;
@@ -116,7 +118,7 @@ const Hero = styled.div`
       line-height: 2;
     }
   }
-   img {
+  img {
     /* z-index: -1; */
     width: 700px;
     height: 670px;
@@ -160,6 +162,13 @@ const Google = styled.button`
     color: rgba(0, 0, 0, 0.75);
   }
 `;
-  
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  signIn: () => dispatch(signInApi()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

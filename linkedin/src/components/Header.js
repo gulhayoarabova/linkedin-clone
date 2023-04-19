@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-const Header = () => {
+const Header = (props) => {
   return (
     <Container>
       <Content>
@@ -55,9 +55,10 @@ const Header = () => {
             </NavList>
             <User>
                 <a>
-                <img src="/images/user.svg" alt="" />
-                <span>Me</span>
+                {props.user && props.user.photoURL ? <img src={props.user.photoURL} alt="" /> : <img src="/images/user.svg" alt="" />}
+                <span>Me
                 <img src="/images/down-icon.svg" alt="" />
+                </span>
                 </a>
 
                 <SignOut>
@@ -89,6 +90,7 @@ const Container = styled.div`
   width: 100vw;
   z-index: 100;
 `;
+
 const Content = styled.div`
   display: flex;
   align-items: center;
@@ -101,6 +103,7 @@ const Logo = styled.span`
   margin-right: 8px;
   font-size: 0px;
 `;
+
 const Search = styled.div`
   opacity: 1;
   flex-grow: 1;
