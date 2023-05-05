@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { signInApi } from "./SignInApi";
 
+
 const Login = (props) => {
   return (
     <Container>
@@ -11,7 +12,9 @@ const Login = (props) => {
         </a>
         <div>
           <Join>Join now</Join>
-          <SignIn>Sign in</SignIn>
+    
+          <a href="/home">
+          <SignIn>Sign in</SignIn></a>
         </div>
       </Nav>
       <Section>
@@ -19,12 +22,23 @@ const Login = (props) => {
           <h1> Welcome to your professional community</h1>
           <img src="/images/login-hero.svg" alt="" />
         </Hero>
+      
         <Form>
+      {/* <FormmLogin>
+			<p>Username</p>
+			<input type="text" name="" placeholder="Enter Username"/>
+			<p>Password</p>
+			<input type="password" name="" placeholder="Enter Password"/>
+			<Submit type="submit" name="" value="Login">Submit</Submit>
+			<a href="/home">Forgot Password</a> <br/>
+			<a href="/home">Don't have an account? Sign Up</a>
+		</FormmLogin> */}
           <Google onClick={() => props.signIn()}>
             <img src="/images/google.svg" alt="" />
             Sign in with Google
           </Google>
         </Form>
+
       </Section>
     </Container>
   );
@@ -141,7 +155,47 @@ const Form = styled.div`
     margin-top: 20px;
   }
 `;
-
+const FormmLogin = styled.form`
+display: flex;
+flex-direction: column;
+padding-bottom: 20px;
+p{
+  font-size: 18px;
+}
+input{
+  border: none;
+	border-bottom: 1px solid white;
+	/* background-color: transparent; */
+	outline: none;
+	height: 40px;
+	color: #000;
+	font-size: 16px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  
+}
+`
+const Submit = styled.button`
+  border:none;
+	outline:none;
+	height:45px;
+	background:#1b55a0;
+	color:#fff;
+	font-size:18px;
+	border-radius:20px;
+  margin: 20px 0; 
+  padding: 5px 0;
+  &:hover{
+	cursor:pointer;
+	background:#2870aa;
+	/* color:#000; */
+  }
+  a{
+    text-decoration:none;
+	font-size:14px;
+	color:white;
+  }
+`
 const Google = styled.button`
   display: flex;
   justify-content: center;
